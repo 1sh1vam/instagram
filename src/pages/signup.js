@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import * as ROUTES from "../constants/routes"
 
 export default function SignUp() {
     return (
@@ -36,6 +38,13 @@ export default function SignUp() {
                     >Sign Up</button>
 
                 </form>
+            </div>
+            <div className="w-1/4 flex justify-center bg-white p-4 border rounded">
+                <p className="text-sm">Have an accout?{' '}
+                    <Link to={ROUTES.LOGIN} className="font-bold text-blue-400">
+                        Log In
+                    </Link>
+                </p>
             </div>
         </div>
     )

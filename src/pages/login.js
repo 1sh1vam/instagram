@@ -21,6 +21,7 @@ export default function Login() {
         firebase.auth().signInWithEmailAndPassword(emailAddress, password)
             .then(user => {
                 console.log("Signed In")
+                setError('')
             }).catch(err => {
                 setError(err)
                 console.log(err)
@@ -55,7 +56,7 @@ export default function Login() {
                             value = {password}
                             onChange = {({target}) => setPassword(target.value)}
                         />
-                        {error && <p className="text-sm w-full text-red-500 mb-2">{error.message}</p>}
+                        {error && <p className="text-sm w-full text-red-500 mb-2">{error.message}</p> }
                         <button type="submit"
                             className={`bg-blue-500 text-white w-full rounded h-8 font-bold ${isInValid && 'cursor-not-allowed opacity-50'}`}
                             disabled = {isInValid}

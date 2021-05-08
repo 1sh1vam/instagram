@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import FirebaseContext from "../context/firebase"
 import * as ROUTES from "../constants/routes"
 
@@ -7,6 +8,7 @@ export default function Login() {
     const [emailAddress, setEmailAddress] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const history = useHistory()
     const { firebase } = useContext(FirebaseContext)
     const isInValid = emailAddress === "" || password === ""
 
@@ -21,6 +23,7 @@ export default function Login() {
         firebase.auth().signInWithEmailAndPassword(emailAddress, password)
             .then(user => {
                 console.log("Signed In")
+                history.push(ROUTES.DASHBOARD)
                 setError('')
             }).catch(err => {
                 setError(err)

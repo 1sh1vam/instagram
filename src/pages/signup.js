@@ -31,7 +31,9 @@ export default function SignUp() {
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                     />
 
-                    
+                    <button type="submit"
+                        className={``}
+                    >Sign Up</button>
 
                 </form>
             </div>

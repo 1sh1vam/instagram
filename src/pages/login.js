@@ -16,19 +16,19 @@ export default function Login() {
         document.title = "Login - Instagram"
     }, [])
 
-    const handleClick = event => {
+    const handleClick = async (event) => {
         event.preventDefault()
         console.log("handling the click")
 
-        firebase.auth().signInWithEmailAndPassword(emailAddress, password)
-            .then(user => {
-                console.log("Signed In")
-                history.push(ROUTES.DASHBOARD)
-                setError('')
-            }).catch(err => {
-                setError(err)
-                console.log(err)
-            })
+        try {
+            await firebase.auth().signInWithEmailAndPassword(emailAddress, password)
+            console.log("Signed In")
+            history.push(ROUTES.DASHBOARD)
+            setError('')
+        } catch(err) {
+            setError(err)
+                console.log(err.message)
+        }
     }
 
     return (

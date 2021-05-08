@@ -41,6 +41,8 @@ export default function Login() {
                     <h1 className="flex justify-center w-full">
                         <img src="/images/logo.png" alt="instagram logo" className="mt-2 w-6/12 mb-4"/>
                     </h1>
+
+                    {error && <p className="text-xs w-full text-red-500 mb-4">{error.message}</p> }
                     
                     <form method="POST" onSubmit={handleClick}>
                         <input 
@@ -59,7 +61,7 @@ export default function Login() {
                             value = {password}
                             onChange = {({target}) => setPassword(target.value)}
                         />
-                        {error && <p className="text-sm w-full text-red-500 mb-2">{error.message}</p> }
+                        
                         <button type="submit"
                             className={`bg-blue-500 text-white w-full rounded h-8 font-bold ${isInValid && 'cursor-not-allowed opacity-50'}`}
                             disabled = {isInValid}

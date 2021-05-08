@@ -32,7 +32,7 @@ export default function SignUp() {
                     />
 
                     <button type="submit"
-                        className={``}
+                        className={`bg-blue-500 text-white w-full font-bold h-8 border outline-none rounded`}
                     >Sign Up</button>
 
                 </form>

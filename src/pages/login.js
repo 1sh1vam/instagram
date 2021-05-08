@@ -7,25 +7,25 @@ export default function Login() {
     const [emailAddress, setEmailAddress] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    // const { firebase } = useContext(FirebaseContext)
+    const { firebase } = useContext(FirebaseContext)
     const isInValid = emailAddress === "" || password === ""
 
     useEffect(()=>{
         document.title = "Login - Instagram"
     }, [])
 
-    // const handleClick = event => {
-    //     event.preventDefault()
-    //     console.log("handling the click")
+    const handleClick = event => {
+        event.preventDefault()
+        console.log("handling the click")
 
-    //     firebase.auth().signInWithEmailAndPassword(emailAddress, password)
-    //         .then(user => {
-    //             console.log("Signed In")
-    //         }).catch(err => {
-    //             setError(err)
-    //             console.log(err)
-    //         })
-    // }
+        firebase.auth().signInWithEmailAndPassword(emailAddress, password)
+            .then(user => {
+                console.log("Signed In")
+            }).catch(err => {
+                setError(err)
+                console.log(err)
+            })
+    }
 
     return (
         <div className="container max-w-screen-md mx-auto h-screen flex items-center">

@@ -25,6 +25,8 @@ export default function SignUp() {
 
     const handleSignUp = async (event) => {
         event.preventDefault()
+        const userNameExists = await doesUserNameExists(userName)
+        console.log(userNameExists)
         try {
             const createdUserResult = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password)
             await createdUserResult.user.updateProfile({

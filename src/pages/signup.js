@@ -17,9 +17,9 @@ export default function SignUp() {
             setUserName(value)
         }
     }
-    console.log(emailAddress, userName)
+
     useEffect(()=> {
-        document.title = "Signup - Instagram"
+        document.title = "Login • Instagram"
     }, [])
     return (
         <div className="container mx-auto max-w-screen h-screen flex flex-col items-center justify-center">

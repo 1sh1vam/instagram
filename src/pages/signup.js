@@ -36,8 +36,9 @@ export default function SignUp() {
                 emailAddress,
                 following: [],
                 followers: [],
+                dateCreated: Date.now()
             }
-            await firebase.firestore().collection("users").doc().set({...doc, dateCreated: Date.now()})
+            await firebase.firestore().collection("users").doc().set(doc)
             setError(' ')
             console.log(doc)
         } catch(err) {

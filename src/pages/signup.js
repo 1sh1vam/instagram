@@ -9,6 +9,8 @@ export default function SignUp() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
+    const isInValid = userName === "" || emailAddress === "" || fullName === "" || password === ""
+
     const handleUserName = value => {
         if(value.includes(" ")) {
             setError('User Name can not include space')
@@ -36,7 +38,7 @@ export default function SignUp() {
                         placeholder="Mobile Number or Email"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={emailAddress}
-                        onChange={({target}) => setEmailAddress(target.value.toLowerCase())}
+                        onChange={({target}) => setEmailAddress(target.value.toLowerCase().replace(" ", ""))}
                     />
                     
                     <input aria-label="Enter your full name"
@@ -44,7 +46,7 @@ export default function SignUp() {
                         placeholder="Full Name"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={fullName}
-                        onChange={({target}) => setFullName(target.value)}
+                        onChange={({target}) => setFullName(target.value.replace(" ", ""))}
                     />
 
                     <input aria-label="Enter your user name"
@@ -60,11 +62,13 @@ export default function SignUp() {
                         placeholder="Password"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={password}
-                        onChange={({target}) => setPassword(target.value)}
+                        onChange={({target}) => setPassword(target.value.replace(" ", ""))}
                     />
 
                     <button type="submit"
-                        className={`bg-blue-500 text-white w-full font-bold h-8 border outline-none rounded`}
+                        className={`bg-blue-500 text-white w-full font-bold h-8 border outline-none rounded 
+                        ${isInValid && 'opacity-50 cursor-not-allowed'}`}
+                        disabled={isInValid}
                     >Sign Up</button>
 
                 </form>

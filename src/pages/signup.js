@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import FirebaseContext from "../context/firebase"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 import { doesUserNameExists } from "../services/firebase"
 
@@ -11,6 +11,7 @@ export default function SignUp() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const {firebase}= useContext(FirebaseContext)
+    const history = useHistory()
 
     const isInValid = userName === "" || emailAddress === "" || fullName === "" || password === ""
 
@@ -42,8 +43,8 @@ export default function SignUp() {
                     dateCreated: Date.now()
                 }
                 await firebase.firestore().collection("users").doc().set(doc)
+                history.push(ROUTES.DASHBOARD)
                 setError(' ')
-                console.log(doc)
             } catch(err) {
                 setError(err.message)
                 setUserName('')

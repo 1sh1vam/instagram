@@ -25,20 +25,27 @@ export default function SignUp() {
     const handleSignUp = async (event) => {
         event.preventDefault()
         try {
-            const response = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password)
+            const createdUserResult = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password)
+            await createdUserResult.user.updateProfile({
+                displayName: userName
+            });
             const doc = {
-                userId: response.user.uid,
+                userId: createdUserResult.user.uid,
                 userName,
                 fullName,
                 emailAddress,
                 following: [],
                 followers: [],
             }
-            await firebase.firestore().collection("users").doc().set({...doc, dateCreated: new Date()})
+            await firebase.firestore().collection("users").doc().set({...doc, dateCreated: Date.now()})
             setError(' ')
             console.log(doc)
         } catch(err) {
             setError(err.message)
+            setUserName('')
+            setEmailAddress('')
+            setFullName('')
+            setPassword('')
         }
     } 
 

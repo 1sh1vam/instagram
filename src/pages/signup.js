@@ -3,6 +3,11 @@ import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 
 export default function SignUp() {
+    const [userName, setUserName] = useState('')
+    const [emailAddress, setEmailAddress] = useState('')
+    const [fullName, setFullName] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     useEffect(()=> {
         document.title = "Signup - Instagram"
@@ -21,24 +26,32 @@ export default function SignUp() {
                         type="text"
                         placeholder="Mobile Number or Email"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
+                        value={emailAddress}
+                        onChange={({target}) => setEmailAddress(target.value.toLowerCase())}
                     />
                     
                     <input aria-label="Enter your full name"
                         type="text"
                         placeholder="Full Name"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
+                        value={fullName}
+                        onChange={({target}) => setFullName(target.value)}
                     />
 
                     <input aria-label="Enter your user name"
                         type="text"
                         placeholder="Username"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
+                        value={userName}
+                        onChange={({target}) => setUserName(target.value)}
                     />
 
                     <input aria-label="Enter password"
                         type="password"
                         placeholder="Password"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
+                        value={password}
+                        onChange={({target}) => setPassword(target.value)}
                     />
 
                     <button type="submit"

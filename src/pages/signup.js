@@ -8,6 +8,15 @@ export default function SignUp() {
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+
+    const handleUserName = value => {
+        if(value.includes(" ")) {
+            setError('User Name can not include space')
+        } else {
+            setError(' ')
+            setUserName(value)
+        }
+    }
     console.log(emailAddress, userName)
     useEffect(()=> {
         document.title = "Signup - Instagram"

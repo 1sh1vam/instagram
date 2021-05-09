@@ -29,7 +29,7 @@ export default function SignUp() {
                 </h1>
 
                 <h3 className="w-4/5 text-center text-lg font-semibold text-gray-400 mb-4">Sign up to see photos and videos from your friends.</h3>
-
+                {error && <p className="text-xs w-4/5 text-red-500 mb-4">{error}</p>}
                 <form method='POST' className="w-4/5">
                     <input aria-label="Enter your email address"
                         type="text"
@@ -52,7 +52,7 @@ export default function SignUp() {
                         placeholder="Username"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={userName}
-                        onChange={({target}) => setUserName(target.value.toLowerCase())}
+                        onChange={({target}) => handleUserName(target.value.toLowerCase())}
                     />
 
                     <input aria-label="Enter password"

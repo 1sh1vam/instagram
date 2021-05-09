@@ -1,8 +1,12 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 
 export default function SignUp() {
+
+    useEffect(()=> {
+        document.title = "Signup - Instagram"
+    }, [])
     return (
         <div className="container mx-auto max-w-screen h-screen flex flex-col items-center justify-center">
             <div className="flex w-1/4 flex-col items-center justify-center bg-white p-4 border mb-4">
@@ -43,7 +47,8 @@ export default function SignUp() {
 
                 </form>
                 <p className="w-4/5 text-xs mt-4 mb-5 text-center">By signing up, you agree to 
-                our <span className="font-bold">Terms</span> , <span className="font-bold">Data Policy</span> and <span className="font-bold">Cookies Policy</span> .</p>
+                our <span className="font-bold">Terms</span>, 
+                <span className="font-bold"> Data Policy</span> and <span className="font-bold">Cookies Policy</span>.</p>
             </div>
             <div className="w-1/4 flex justify-center bg-white p-4 border rounded">
                 <p className="text-sm">Have an accout?{' '}

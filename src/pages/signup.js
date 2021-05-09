@@ -46,7 +46,7 @@ export default function SignUp() {
                         placeholder="Full Name"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={fullName}
-                        onChange={({target}) => setFullName(target.value.replace(" ", ""))}
+                        onChange={({target}) => setFullName(target.value)}
                     />
 
                     <input aria-label="Enter your user name"

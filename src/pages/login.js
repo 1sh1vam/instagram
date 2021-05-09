@@ -50,7 +50,7 @@ export default function Login() {
                             type="text"
                             placeholder="Phone number, username or email"
                             value = {emailAddress}
-                            onChange = {({target}) => setEmailAddress(target.value)}
+                            onChange = {({target}) => setEmailAddress(target.value.replace(" ", ""))}
                         />
                         <input 
                             aria-label="Enter your password"
@@ -58,7 +58,7 @@ export default function Login() {
                             type="password"
                             placeholder="Password"
                             value = {password}
-                            onChange = {({target}) => setPassword(target.value)}
+                            onChange = {({target}) => setPassword(target.value.replace(" ", ""))}
                         />
                         
                         <button type="submit"

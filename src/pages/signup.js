@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import FirebaseContext from "../context/firebase"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
+import { doesUserNameExists } from "../services/firebase"
 
 export default function SignUp() {
     const [userName, setUserName] = useState('')
@@ -31,7 +32,7 @@ export default function SignUp() {
             });
             const doc = {
                 userId: createdUserResult.user.uid,
-                userName,
+                username: userName,
                 fullName,
                 emailAddress,
                 following: [],

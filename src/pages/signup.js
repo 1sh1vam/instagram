@@ -8,7 +8,7 @@ export default function SignUp() {
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-
+    console.log(emailAddress, userName)
     useEffect(()=> {
         document.title = "Signup - Instagram"
     }, [])
@@ -43,7 +43,7 @@ export default function SignUp() {
                         placeholder="Username"
                         className="text-sm w-full mr-3 py-5 px-4 h-2 border outline-none rounded mb-2"
                         value={userName}
-                        onChange={({target}) => setUserName(target.value)}
+                        onChange={({target}) => setUserName(target.value.toLowerCase())}
                     />
 
                     <input aria-label="Enter password"

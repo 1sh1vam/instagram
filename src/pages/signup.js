@@ -42,7 +42,8 @@ export default function SignUp() {
                     >Sign Up</button>
 
                 </form>
-                <p className="w-4/5 text-xs mt-4 mb-5 text-center">By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
+                <p className="w-4/5 text-xs mt-4 mb-5 text-center">By signing up, you agree to 
+                our <span className="font-bold">Terms</span> , <span className="font-bold">Data Policy</span> and <span className="font-bold">Cookies Policy</span> .</p>
             </div>
             <div className="w-1/4 flex justify-center bg-white p-4 border rounded">
                 <p className="text-sm">Have an accout?{' '}

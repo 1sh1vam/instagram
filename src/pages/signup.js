@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import FirebaseContext from "../context/firebase"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 
@@ -8,6 +9,7 @@ export default function SignUp() {
     const [fullName, setFullName] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const {firebase}= useContext(FirebaseContext)
 
     const isInValid = userName === "" || emailAddress === "" || fullName === "" || password === ""
 
@@ -19,6 +21,26 @@ export default function SignUp() {
             setUserName(value)
         }
     }
+
+    const handleSignUp = async (event) => {
+        event.preventDefault()
+        try {
+            const response = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password)
+            const doc = {
+                userId: response.user.uid,
+                userName,
+                fullName,
+                emailAddress,
+                following: [],
+                followers: [],
+            }
+            await firebase.firestore().collection("users").doc().set({...doc, dateCreated: new Date()})
+            setError(' ')
+            console.log(doc)
+        } catch(err) {
+            setError(err.message)
+        }
+    } 
 
     useEffect(()=> {
         document.title = "Login • Instagram"
@@ -32,7 +54,7 @@ export default function SignUp() {
 
                 <h3 className="w-4/5 text-center text-lg font-semibold text-gray-400 mb-4">Sign up to see photos and videos from your friends.</h3>
                 {error && <p className="text-xs w-4/5 text-red-500 mb-4">{error}</p>}
-                <form method='POST' className="w-4/5">
+                <form method='POST' onSubmit={handleSignUp} className="w-4/5">
                     <input aria-label="Enter your email address"
                         type="text"
                         placeholder="Mobile Number or Email"

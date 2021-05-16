@@ -6,8 +6,8 @@ import Timeline from "../components/timeline.js"
 export default function Dashboard() {
     return (
         <div className="bg-gray-100">
-            <p>Hello from Dashboard</p>
-            <div className="">
+            <Header />
+            <div className="grid grid-cols-3 gap-4 justify-between max-w-screen-lg mx-auto">
                 <Header />
                 <Timeline />
             </div>

@@ -17,7 +17,7 @@ export default function Header() {
                 <div className="h-29 search-box">
                     <input type="text" placeholder="Search" className="text-sm search-border outline-none"/>
                     <i className="fas fa-search search-icon"></i>
-                    <i class="fas fa-times-circle"></i>
+                    <i class="fas fa-times-circle cross-icon"></i>
                 </div>
 
                 <div className="flex justify-between items-center">

@@ -29855,6 +29855,20 @@ video {
   text-align: left;
 }
 
+.cross-icon {
+  font-size: 14px;
+  display: none;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  cursor: pointer;
+  color: #dbdbdb;
+}
+
+.search-box:focus-within .cross-icon {
+  display: block;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

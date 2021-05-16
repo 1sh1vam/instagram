@@ -9,7 +9,9 @@ export default function Header() {
         <header className="w-full header-hei border-b mb-8 bg-white">
             <div className="container h-full maxw-975 mx-auto flex justify-between items-center">
                 <div className="hei-29">
-                    <img src="images/instalogo.png" alt="instagram logo" />
+                    <Link to={ROUTES.DASHBOARD}>
+                        <img src="images/instalogo.png" alt="instagram logo" />
+                    </Link>
                 </div>
 
                 <div className="flex justify-between items-center">

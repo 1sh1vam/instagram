@@ -29795,6 +29795,35 @@ video {
   min-width: 300px;
 }
 
+.maxw-975 {
+  max-width: 975px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header-hei {
+  height: 54px;
+  box-sizing: border-box;
+}
+
+.hei-29 {
+  height: 29px;
+}
+
+.bg-insta-gray {
+  background-color: #fafafa;
+}
+
+.dim22{
+  height: 22px;
+  width: 22px;
+}
+
+.header-svgs {
+  width: 222px;
+  padding-left: 24px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

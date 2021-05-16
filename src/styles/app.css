@@ -29808,6 +29808,7 @@ video {
 
 .hei-29 {
   height: 29px;
+  margin-top: 8px;
 }
 
 .bg-insta-gray {
@@ -29822,6 +29823,22 @@ video {
 .header-svgs {
   width: 222px;
   padding-left: 24px;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-border {
+  box-sizing: border-box;
+  width: 215px;
+  height: 28px;
+  padding: 3px 10px 3px 26px;
+  border: 1px solid #dbdbdb;
+  background: #fafafa;
+}
+
+.search-icon {
 }
 
 @media (min-width: 640px) {

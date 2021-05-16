@@ -14,6 +14,10 @@ export default function Header() {
                     </Link>
                 </div>
 
+                <div className="h-29 search-box">
+                    <input type="text" placeholder="Search" className="text-sm text-center search-border outline-none"/>
+                </div>
+
                 <div className="flex justify-between items-center">
                     {user ? (
                         <>

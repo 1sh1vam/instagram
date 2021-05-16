@@ -29836,9 +29836,23 @@ video {
   padding: 3px 10px 3px 26px;
   border: 1px solid #dbdbdb;
   background: #fafafa;
+  text-align: center;
 }
 
 .search-icon {
+  color: #dbdbdb;
+  position: absolute;
+  top: 11px;
+  left: 80px;
+  font-size: 10px;
+}
+
+.search-box:focus-within .search-icon{
+  left: 8px;
+}
+
+.search-box:focus-within .search-border {
+  text-align: left;
 }
 
 @media (min-width: 640px) {

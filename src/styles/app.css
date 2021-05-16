@@ -29791,7 +29791,7 @@ video {
   --tw-backdrop-sepia: sepia(100%);
 }
 
-.w-300 {
+.minw-300 {
   min-width: 300px;
 }
 

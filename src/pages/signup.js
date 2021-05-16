@@ -61,7 +61,7 @@ export default function SignUp() {
     }, [])
     return (
         <div className="container mx-auto max-w-screen h-screen flex flex-col items-center justify-center">
-            <div className="flex w-1/4 w-300 flex-col items-center justify-center bg-white p-4 border mb-4">
+            <div className="flex w-1/4 minw-300 flex-col items-center justify-center bg-white p-4 border mb-4">
                 <h1 className="flex justify-center w-full">
                     <img src="/images/logo.png" alt='instagram logo' className="mt-5 w-6/12 mb-4" />
                 </h1>
@@ -112,7 +112,7 @@ export default function SignUp() {
                 our <span className="font-bold">Terms</span>, 
                 <span className="font-bold"> Data Policy</span> and <span className="font-bold">Cookies Policy</span>.</p>
             </div>
-            <div className="w-1/4 w-300 flex justify-center bg-white p-4 border rounded">
+            <div className="w-1/4 minw-300 flex justify-center bg-white p-4 border rounded">
                 <p className="text-sm">Have an accout?{' '}
                     <Link to={ROUTES.LOGIN} className="font-bold text-blue-400">
                         Log In

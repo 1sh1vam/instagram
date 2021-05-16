@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    .w-300 {
+    .minw-300 {
         min-width: 300px;
     }
 }

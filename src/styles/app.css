@@ -29869,6 +29869,15 @@ video {
   display: block;
 }
 
+.profile-avtar {
+  height: 22px;
+  position: relative;
+}
+
+.profile-avtar-focus {
+  border: 1px solid #000;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

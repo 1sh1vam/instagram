@@ -81,4 +81,13 @@
         display: block;
     }
 
+    .profile-avtar {
+        height: 22px;
+        position: relative;
+    }
+
+    .profile-avtar-focus {
+        border: 1px solid #000;
+    }
+
 }

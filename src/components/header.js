@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
+import ProfilePopUp from "./profilePopUp"
 
 export default function Header() {
+    const [popup, setPopup] = useState(false)
     const user = true
 
     return (
@@ -49,7 +51,9 @@ export default function Header() {
                                 <img
                                     src="images/avatars/karl.jpg"
                                     className="h-full rounded-full cursor-pointer"
+                                    onClick={() => setPopup(prev=>!prev)}
                                 />
+                                {popup && <ProfilePopUp />}
                             </div>
                         </>
                     ): (

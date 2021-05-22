@@ -29878,6 +29878,21 @@ video {
   border: 1px solid #000;
 }
 
+.profile-popup {
+  width: 213px;
+  position: absolute;
+  right: -20px;
+  top: 37px;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  z-index: 3;
+}
+
+.profile-links:hover {
+  background-color: #f0f2f5;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

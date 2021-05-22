@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 import ProfilePopUp from "./profilePopUp"
@@ -6,6 +6,14 @@ import ProfilePopUp from "./profilePopUp"
 export default function Header() {
     const [popup, setPopup] = useState(false)
     const user = true
+
+    useEffect(() => {
+        document.body.addEventListener("click", e=>{
+            if(e.target.parentNode.id !== "profile-avtar") {
+                setPopup(false)
+            }
+        })
+    }, [])
 
     return (
         <header className="w-full header-hei border-b mb-8 bg-white">
@@ -47,13 +55,13 @@ export default function Header() {
                                 </svg>
                             </Link>
 
-                            <div className="profile-avtar">
+                            <div id="profile-avtar" className="profile-avtar">
                                 <img
                                     src="images/avatars/karl.jpg"
                                     className="h-full rounded-full cursor-pointer"
                                     onClick={() => setPopup(prev=>!prev)}
                                 />
-                                {popup && <ProfilePopUp />}
+                                {popup && <ProfilePopUp setPopup={setPopup}/>}
                             </div>
                         </>
                     ): (

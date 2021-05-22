@@ -1,11 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import * as ROUTES from "../constants/routes"
 
 export default function ProfilePopUp({setPopup}) {
+    const user = {
+        displayName: "shivam"
+    }
 
     return (
         <div className="flex flex-col profile-popup">
-            <Link className="pt-1 pb-1 pl-5  cursor-pointer flex items-center profile-links"
+            <Link  to={`/p/${user.displayName}`}
+                className="pt-1 pb-1 pl-5  cursor-pointer flex items-center profile-links"
                 onClick={()=>setPopup(prev => !prev)}
             >
                 <svg aria-label="Profile" fill="#262626" height="16" viewBox="0 0 32 32" width="16">

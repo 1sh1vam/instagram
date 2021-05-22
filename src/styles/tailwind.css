@@ -67,6 +67,12 @@
         text-align: left;
     }
 
+    @media (max-width: 600px) {
+        .search-box {
+            display: none;
+        }
+    }
+
     .cross-icon {
         font-size: 14px;
         display: none;
@@ -96,7 +102,7 @@
         right: -20px;
         top: 37px;
         background-color: #fff;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         z-index: 3;
     }

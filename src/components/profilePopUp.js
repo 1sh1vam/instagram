@@ -5,7 +5,6 @@ import * as ROUTES from "../constants/routes"
 
 export default function ProfilePopUp({setPopup, user}) {
     const { firebase } = useContext(FirebaseContext)
-    console.log(user)
     const handleSignOut = () => {
         setPopup(prev => !prev)
         firebase.auth().signOut()

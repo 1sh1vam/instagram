@@ -9,6 +9,7 @@ export default function useUser() {
     useEffect(() => {
         async function getUserObjByUserId() {
             const [response] = await getUserByUserId(user.uid)
+            setActiveUser(response)
         }
         if(user && user.uid) {
             getUserObjByUserId()

@@ -2,10 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 
-export default function ProfilePopUp({setPopup}) {
-    const user = {
-        displayName: "shivam"
-    }
+export default function ProfilePopUp({setPopup, user}) {
 
     return (
         <div className="flex flex-col profile-popup">

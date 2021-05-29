@@ -61,7 +61,7 @@ export default function Header() {
                                     className="h-full rounded-full cursor-pointer"
                                     onClick={() => setPopup(prev=>!prev)}
                                 />
-                                {popup && <ProfilePopUp setPopup={setPopup}/>}
+                                {popup && <ProfilePopUp setPopup={setPopup} user={user}/>}
                             </div>
                         </>
                     ): (

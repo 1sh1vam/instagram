@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 
-export default function ProfilePopUp({setPopup, user}) {
-
+export default function ProfilePopUp({setPopup, user, firebase}) {
+    console.log(user)
     return (
         <div className="flex flex-col profile-popup">
             <Link  to={`/p/${user.displayName}`}

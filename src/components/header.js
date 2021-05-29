@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import UserContext from "../context/user"
 import * as ROUTES from "../constants/routes"
 import ProfilePopUp from "./profilePopUp"
 
 export default function Header() {
     const [popup, setPopup] = useState(false)
-    const user = true
-
+    const { user } = useContext(UserContext)
     useEffect(() => {
         document.body.addEventListener("click", e=>{
             if(e.target.parentNode.id !== "profile-avtar") {

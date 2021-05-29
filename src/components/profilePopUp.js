@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
+import FirebaseContext from "../context/firebase"
 import * as ROUTES from "../constants/routes"
 
-export default function ProfilePopUp({setPopup, user, firebase}) {
+export default function ProfilePopUp({setPopup, user}) {
+    const { firebase } = useContext(FirebaseContext)
     console.log(user)
+    const handleSignOut = () => {
+        setPopup(prev => !prev)
+        firebase.auth().signOut()
+    }
+
     return (
         <div className="flex flex-col profile-popup">
             <Link  to={`/p/${user.displayName}`}
@@ -25,7 +32,7 @@ export default function ProfilePopUp({setPopup, user, firebase}) {
             </Link>
             <hr/>
             <button className="pl-5 pt-2 pb-2 text-left cursor-pointer focus:outline-none profile-links"
-                onClick={()=>setPopup(prev => !prev)}
+                onClick={handleSignOut}
             >Log Out</button>
         </div>
     )

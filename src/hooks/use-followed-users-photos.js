@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react"
 import UserContext from "../context/user"
-import { getUserByUserId } from "../services/firebase"
+import { getUserByUserId, getUserFollowedPhotos } from "../services/firebase"
 
 export default function useFollowedUsersPhotos() {
     const [photos, setPhotos] = useState(null)

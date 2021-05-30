@@ -7,7 +7,7 @@ export default function Timeline() {
 
     return (
         <div>
-            {!photos ? (
+            {!false ? (
                 <Skeleton count={4} width={640} height={500} className="mb-5"/>
             )
             :(

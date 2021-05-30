@@ -50,6 +50,5 @@ export async function getUserFollowedPhotos(userId, followingUserIds) {
         }) 
     )
     
-    console.log(photosWithUserDetails)
     return photosWithUserDetails
 }

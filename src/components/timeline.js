@@ -7,12 +7,14 @@ export default function Timeline() {
 
     return (
         <div>
-            {!false ? (
-                <Skeleton count={4} width={640} height={500} className="mb-5"/>
+            {!photos ? (
+                <Skeleton count={4} width={640} height={500} className="mb-5" />
             )
-            :(
-                photos.map((photo) => <p>I am the photo</p>)
-            )}
+                : photos && photos.length > 0 ? (
+                    photos.map((photo) => <p>I am the photo</p>)
+                ) : (
+                    <p className="text-2xl text-center">Follow people to see photos!</p>
+                )}
         </div>
     )
 }

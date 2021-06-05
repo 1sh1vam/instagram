@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Action({ docId, totalLikes, likedPhoto, handleFocus }) {
+export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) {
     return (
         <>
             <div className="flex justify-betweeen p-4">

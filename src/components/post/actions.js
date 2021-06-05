@@ -1,21 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import FirebaseContext from "../../context/firebase"
+import UserContext from "../../context/user"
 
 export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) {
     const [toggleLiked, setToggledLiked] = useState(likedPhoto)
     const [likes, setLikes] = useState(totalLikes)
+    const { firebase, FieldValue } = useContext(FirebaseContext)
+    const { user: { uid: userId = '' } } = useContext(UserContext)
+
+    const handleToggleLiked = async () => {
+        setToggledLiked(prev => !prev)
+
+        await firebase
+            .firestore()
+            .collection('photos')
+            .doc(docId)
+            .update({
+                likes: toggleLiked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)
+            });
+
+        setLikes(prev => toggleLiked ? prev - 1 : prev + 1);
+    }
 
     return (
         <>
-            <div className="flex justify-betweeen p-4">
+            <div className="flex justify-betweeen p-4 pb-0">
                 <div className="flex">
                     <svg aria-label="Unlike" class="_8-yf5 "
                         fill={toggleLiked ? "#ed4956" : "#262626"} height="24"
                         viewBox="0 0 48 48" width="24"
-                        onClick={() => setToggledLiked(prev => !prev)}
+                        onClick={handleToggleLiked}
                         onKeyDown={(event) => {
                             console.log(event.key)
                             if (event.key === 'enter') {
-                                setToggledLiked(prev => !prev)
+                                handleToggleLiked()
                             }
                         }}
                         className="cursor-pointer"
@@ -26,6 +44,10 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) 
                         }
                     </svg>
                 </div>
+            </div>
+
+            <div className="p-4 py-0">
+                <p className="font-bold">{likes <= 1 ? `${likes} like` : `${likes} likes`}</p>
             </div>
         </>
     )

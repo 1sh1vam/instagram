@@ -59,7 +59,12 @@
         font-size: 10px;
     }
 
+    .search-icon-visible {
+        opacity: 0;
+    }
+
     .search-box:focus-within .search-icon{
+        opacity: 100%;
         left: 8px;
     }
 

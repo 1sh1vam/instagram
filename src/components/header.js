@@ -6,10 +6,11 @@ import ProfilePopUp from "./profilePopUp"
 
 export default function Header() {
     const [popup, setPopup] = useState(false)
+    const [searchInput, setSearchInput] = useState('')
     const { user } = useContext(UserContext)
     useEffect(() => {
-        document.body.addEventListener("click", e=>{
-            if(e.target.parentNode.id !== "profile-avtar") {
+        document.body.addEventListener("click", e => {
+            if (e.target.parentNode.id !== "profile-avtar") {
                 setPopup(false)
             }
         })
@@ -25,8 +26,12 @@ export default function Header() {
                 </div>
 
                 <div className="h-29 search-box">
-                    <input type="text" placeholder="Search" className="text-sm search-border outline-none"/>
-                    <i className="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search"
+                        className="text-sm search-border outline-none"
+                        value={searchInput}
+                        onChange={({ target }) => setSearchInput(target.value)}
+                    />
+                    <i className="fas fa-search search-icon search-icon-visible"></i>
                     <i class="fas fa-times-circle cross-icon"></i>
                 </div>
 
@@ -59,13 +64,13 @@ export default function Header() {
                                 <img
                                     src="images/avatars/karl.jpg"
                                     className="h-full rounded-full cursor-pointer"
-                                    onClick={() => setPopup(prev=>!prev)}
+                                    onClick={() => setPopup(prev => !prev)}
                                 />
-                                {popup && <ProfilePopUp setPopup={setPopup} user={user}/>}
+                                {popup && <ProfilePopUp setPopup={setPopup} user={user} />}
                             </div>
                         </>
-                    ): (
-                        <>  
+                    ) : (
+                        <>
                             <Link to={ROUTES.LOGIN}>
                                 <button
                                     className="bg-blue-500 rounded text-white text-sm 

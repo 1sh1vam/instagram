@@ -3,10 +3,12 @@ import Image from './image';
 import Footer from './footer';
 import Actions from './actions';
 import Header from './header';
+import Comments from './comments';
 
 export default function Post({ content }) {
     const commentInput = useRef(null);
     const handleFocus = () => commentInput.current.focus();
+    console.log(content)
 
     return (
         <div className="rounded mb-16 bg-white border">
@@ -19,6 +21,12 @@ export default function Post({ content }) {
                 handleFocus={handleFocus}
             />
             <Footer caption={content.caption} username={content.username} />
+            <Comments
+                docId={content.docId}
+                comments={content.comments}
+                posted={content.dateCreated}
+                commentInput={commentInput}
+            />
         </div>
     )
 }

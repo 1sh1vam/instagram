@@ -14,8 +14,6 @@ export default function AddComment({ docId, setComments, commentInput }) {
         setComments(prev => [{ comment, displayName }, ...prev]);
         setComment('');
 
-        console.log("inside", comment)
-
         return firebase
             .firestore()
             .collection('photos')

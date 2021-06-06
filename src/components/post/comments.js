@@ -8,7 +8,7 @@ export default function Comments({ docId, comments: allComments, posted, comment
         <>
             <div className='p-4 pt-1'>
                 {comments.length > 2 && <p className='text-sm text-gray-500 mb-1 cursor-pointer'>
-                    View all comments...
+                    View all {comments.length} comments...
                     </p>
                 }
 

@@ -14,7 +14,7 @@ export default function AddComment({ docId, setComments, commentInput }) {
         setComments(prev => [{ comment, displayName }, ...prev]);
         setComment('');
 
-        console.log(comment)
+        console.log("inside", comment)
 
         return firebase
             .firestore()
@@ -25,12 +25,11 @@ export default function AddComment({ docId, setComments, commentInput }) {
             })
     }
 
-
     return (
         <div className="border-t border-gray">
             <form method="POST"
                 className="w-full flex items-center justify-between pr-5"
-                onSubmit={handleCommentSubmit}
+                onSubmit={(event) => comment.length > 0 ? handleCommentSubmit(event) : event.preventDefault()}
             >
                 <input
                     type="text"
@@ -41,7 +40,8 @@ export default function AddComment({ docId, setComments, commentInput }) {
                 />
 
                 <button type="submit"
-                    className={`text-sm font-medium text-blue-500 ${!comment && "opacity-25"}`}
+                    className={`text-sm font-medium focus:outline-none text-blue-500 ${!comment && "opacity-25"}`}
+                    disabled={comment.length < 1}
                 >
                     Post
                 </button>

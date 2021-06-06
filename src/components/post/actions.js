@@ -31,7 +31,6 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) 
                         viewBox="0 0 48 48" width="24"
                         onClick={handleToggleLiked}
                         onKeyDown={(event) => {
-                            console.log(event.key)
                             if (event.key === 'enter') {
                                 handleToggleLiked()
                             }

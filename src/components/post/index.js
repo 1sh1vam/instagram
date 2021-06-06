@@ -8,7 +8,6 @@ import Comments from './comments';
 export default function Post({ content }) {
     const commentInput = useRef(null);
     const handleFocus = () => commentInput.current.focus();
-    console.log(content)
 
     return (
         <div className="rounded mb-16 bg-white border">

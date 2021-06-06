@@ -25,7 +25,11 @@ export default function Comments({ docId, comments: allComments, posted, comment
                 }
             </div>
 
-            <AddComment />
+            <AddComment
+                docId={docId}
+                setComments={setComments}
+                commentInput={commentInput}
+            />
         </>
     )
 }

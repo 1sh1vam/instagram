@@ -21,7 +21,7 @@ export default function SuggestedProfiles({ userDocId, username, profileId, user
             <div className="flex">
                 <button
                     type="button"
-                    className="text-sm font-medium text-blue"
+                    className="text-sm font-medium text-blue-500"
                     onClick={handleFollowUser}
                 >
                     Follow

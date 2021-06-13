@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
 
@@ -21,4 +21,4 @@ const User = ({ username, fullName }) => !username || !fullName ? (
 )
 
 
-export default User
+export default memo(User)

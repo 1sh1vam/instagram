@@ -62,7 +62,7 @@ export default function Header() {
 
                             <div id="profile-avtar" className="profile-avtar">
                                 <img
-                                    src="images/avatars/karl.jpg"
+                                    src={`images/avatars/${user.displayName}.jpg`}
                                     className="h-full rounded-full cursor-pointer"
                                     onClick={() => setPopup(prev => !prev)}
                                 />

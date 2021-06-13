@@ -14,7 +14,7 @@ const User = ({ username, fullName }) => !username || !fullName ? (
             />
         </div>
         <div className="col-span-3 flex flex-col justify-center ml-1">
-            <p className="font-bold text-sm">{username}</p>
+            <p className="font-medium text-sm">{username}</p>
             <p className="text-sm">{fullName}</p>
         </div>
     </Link>

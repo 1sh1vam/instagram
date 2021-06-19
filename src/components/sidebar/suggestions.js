@@ -9,7 +9,6 @@ const Suggestions = ({ userId }) => {
     useEffect(() => {
         async function suggestedProfiles() {
             const response = await getSuggestedProfiles(userId)
-            console.log("suggested profile", response);
             setProfiles(response)
         }
         if (userId) {

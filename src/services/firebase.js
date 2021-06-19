@@ -85,3 +85,13 @@ export async function updateFollwedUserFollowers(docId, followingUserId, isFollo
                 : FieldValue.arrayUnion(followingUserId)
         })
 }
+
+export async function getUserByUserName(username) {
+    const results =  await firebase
+        .firestore()
+        .collection('users')
+        .where('username', '==', username)
+        .get();
+
+    return results.docs.map(user => ({...user.data(), docId: user.id }))
+}

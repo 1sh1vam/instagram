@@ -21,7 +21,7 @@ export default function Header() {
             <div className="container h-full maxw-975 mx-auto flex justify-between items-center">
                 <div className="hei-29">
                     <Link to={ROUTES.DASHBOARD}>
-                        <img src="images/instalogo.png" alt="instagram logo" />
+                        <img src="/images/instalogo.png" alt="instagram logo" />
                     </Link>
                 </div>
 
@@ -62,7 +62,7 @@ export default function Header() {
 
                             <div id="profile-avtar" className="profile-avtar">
                                 <img
-                                    src={`images/avatars/${user.displayName}.jpg`}
+                                    src={`/images/avatars/${user.displayName}.jpg`}
                                     className="h-full rounded-full cursor-pointer"
                                     onClick={() => setPopup(prev => !prev)}
                                 />

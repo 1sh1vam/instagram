@@ -73,3 +73,15 @@ export async function updateUserFollowing(docId, profileId, isFollowingProfile) 
                 : FieldValue.arrayUnion(profileId)
         })
 }
+
+export async function updateFollwedUserFollowers(docId, followingUserId, isFollowingProfile) {
+    return firebase
+        .firestore()
+        .collection('users')
+        .doc(docId)
+        .update({
+            following: isFollowingProfile ? 
+                FieldValue.arrayRemove(followingUserId)
+                : FieldValue.arrayUnion(followingUserId)
+        })
+}

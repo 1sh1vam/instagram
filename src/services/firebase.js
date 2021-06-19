@@ -61,3 +61,15 @@ export async function getSuggestedProfiles(userId) {
     return results.docs.map(user => ({...user.data(), docId: user.id}))
         .filter(profile => profile.userId !== userId && !following.includes(profile.userId))
 }
+
+export async function updateUserFollowing(docId, profileId, isFollowingProfile) {
+    return firebase
+        .firestore()
+        .collection('users')
+        .doc(docId)
+        .update({
+            following: isFollowingProfile ? 
+                FieldValue.arrayRemove(profileId)
+                : FieldValue.arrayUnion(profileId)
+        })
+}

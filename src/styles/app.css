@@ -29801,6 +29801,13 @@ video {
   padding-right: 10px;
 }
 
+.square {
+  width: 293px;
+  max-width: 293px;
+  max-height: 293px;
+  object-fit: cover;
+}
+
 .header-hei {
   height: 54px;
   box-sizing: border-box;

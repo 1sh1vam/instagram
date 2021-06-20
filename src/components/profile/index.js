@@ -6,7 +6,7 @@ import Photos from './photos';
 const reducer = (state, newState) => ({...state, ...newState});
 const initialState = {
     profile: {},
-    photosCollection: [],
+    photosCollection: null,
     followerCount: 0,
 }
 
@@ -20,16 +20,17 @@ export default function Profile({ username }) {
         async function getProfileInfoAndPhotos() {
             const [user] = await getUserByUserName(username);
             const photos = await getPhotosByUserId(user.userId);
-            console.log('photosss', photos);
+            
+            dispatch({profile: user, photosCollection: photos, followerCount: user.followers.length})
         }
 
         getProfileInfoAndPhotos();
-    })
-
+    }, [])
+    console.log(profile)
     return (
-        <>
+        <div className="maxw-975 mx-auto">
             <Header />
-            <Photos />
-        </>
+            <Photos photos={photosCollection}/>
+        </div>
     )
 }

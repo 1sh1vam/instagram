@@ -25,7 +25,7 @@ export default function Profile() {
     return userExists ? (
         <div className="bg-gray">
             <Header />
-            <UserProfile />
+            <UserProfile username={username} />
         </div>
     ) : null
 }

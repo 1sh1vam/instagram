@@ -103,5 +103,5 @@ export async function getPhotosByUserId(userId) {
         .where('userId', '==', userId)
         .get();
 
-    return results.map(photo => ({...photo.data(), docId: photo.id}))
+    return results.docs.map(photo => ({...photo.data(), docId: photo.id}))
 }

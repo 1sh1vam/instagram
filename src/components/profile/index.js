@@ -7,11 +7,11 @@ const reducer = (state, newState) => ({...state, ...newState});
 const initialState = {
     profile: {},
     photosCollection: null,
-    followerCount: 0,
+    followersCount: 0,
 }
 
 export default function Profile({ username }) {
-    const [ {profile, photosCollection, followerCount}, dispatch ] = useReducer(
+    const [ {profile, photosCollection, followersCount}, dispatch ] = useReducer(
         reducer,
         initialState
     )
@@ -21,7 +21,7 @@ export default function Profile({ username }) {
             const [user] = await getUserByUserName(username);
             const photos = await getPhotosByUserId(user.userId);
             
-            dispatch({profile: user, photosCollection: photos, followerCount: user.followers.length})
+            dispatch({profile: user, photosCollection: photos, followersCount: user.followers.length})
         }
 
         getProfileInfoAndPhotos();
@@ -29,7 +29,13 @@ export default function Profile({ username }) {
     console.log(profile)
     return (
         <div className="maxw-975 mx-auto">
-            <Header />
+            <Header 
+                followersCount={followersCount} 
+                photosCount={photosCollection ? photosCollection.length : 0} 
+                profile={profile}
+                setFollowerCount={dispatch}
+                username={username}
+            />
             <Photos photos={photosCollection}/>
         </div>
     )

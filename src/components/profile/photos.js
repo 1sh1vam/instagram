@@ -18,6 +18,7 @@ export default function Photos({ photos }) {
                     ))
                 )}
             </div>
+            {!photos || photos && photos.length === 0 && <p className="text-center text-2xl">No Photos Yet!!!</p>}
         </div>
     )
 }

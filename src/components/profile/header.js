@@ -7,12 +7,18 @@ export default function Header({
     photosCount, 
     followersCount, 
     profile: {docId: profileDocId, userId: profileUserId, fullName, following = []}, 
-    setProfileCount,
+    setFollowerCount,
 }) {
 
     const [isFollowingProfile, setIsFollowingProfile] = useState(false);
     const { user } = useUser();
     const activeBtn = user.username && user.username !== username;
+
+    const handleToggle = async () => {
+        setIsFollowingProfile(prev => !prev)
+        setFollowerCount({ followersCount: isFollowingProfile ? followersCount - 1 : followersCount + 1 });
+        await toggleFollow(isFollowingProfile, user.docId, user.userId, profileDocId, profileUserId )
+    }
     return (
         <div className="grid grid-cols-3 gap-4 mx-auto">
             <div className="container flex items-center justify-center">

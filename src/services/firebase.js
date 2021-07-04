@@ -9,10 +9,10 @@ export async function isUserFollowingProfile(username, profileUserId) {
         .get()
 
     const [response = {}] = result.docs.map(item => ({
-        ...item,
+        ...item.data(),
         docId: item.id,
     }))
-
+    console.log('response', response);
     return !!response.fullName
 }
 
@@ -79,9 +79,9 @@ export async function getSuggestedProfiles(userId) {
 }
 
 export async function updateUserFollowing(docId, profileId, isFollowingProfile) {
-    console.log('docId', docId);
-    console.log("profile id", profileId);
-    console.log("is following", isFollowingProfile);
+    // console.log('docId', docId);
+    // console.log("profile id", profileId);
+    // console.log("is following", isFollowingProfile);
     return firebase
         .firestore()
         .collection('users')
@@ -94,9 +94,9 @@ export async function updateUserFollowing(docId, profileId, isFollowingProfile) 
 }
 
 export async function updateFollwedUserFollowers(docId, followingUserId, isFollowingProfile) {
-    console.log('profile docId', docId);
-    console.log("id", followingUserId);
-    console.log("is following", isFollowingProfile);
+    // console.log('profile docId', docId);
+    // console.log("id", followingUserId);
+    // console.log("is following", isFollowingProfile);
     return firebase
         .firestore()
         .collection('users')

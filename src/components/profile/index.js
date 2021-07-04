@@ -25,7 +25,7 @@ export default function Profile({ username }) {
         }
 
         getProfileInfoAndPhotos();
-    }, [])
+    }, [username])
     console.log(profile)
     return (
         <div className="maxw-975 mx-auto">

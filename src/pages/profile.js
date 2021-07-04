@@ -9,6 +9,7 @@ export default function Profile() {
     const { username } = useParams();
     const [userExists, setUserExists] = useState(undefined);
     const history = useHistory();
+    console.log('username', username);
 
     useEffect(() => {
         async function checkUserExistsToLoadProfile() {
@@ -20,6 +21,7 @@ export default function Profile() {
             }
         }
         checkUserExistsToLoadProfile();
+        console.log('came here');
     }, [username, history])
 
     return userExists ? (

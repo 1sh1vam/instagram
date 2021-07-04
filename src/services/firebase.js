@@ -63,6 +63,9 @@ export async function getSuggestedProfiles(userId) {
 }
 
 export async function updateUserFollowing(docId, profileId, isFollowingProfile) {
+    console.log('docId', docId);
+    console.log("profile id", profileId);
+    console.log("is following", isFollowingProfile);
     return firebase
         .firestore()
         .collection('users')
@@ -75,12 +78,15 @@ export async function updateUserFollowing(docId, profileId, isFollowingProfile) 
 }
 
 export async function updateFollwedUserFollowers(docId, followingUserId, isFollowingProfile) {
+    console.log('profile docId', docId);
+    console.log("id", followingUserId);
+    console.log("is following", isFollowingProfile);
     return firebase
         .firestore()
         .collection('users')
         .doc(docId)
         .update({
-            following: isFollowingProfile ? 
+            followers: isFollowingProfile ? 
                 FieldValue.arrayRemove(followingUserId)
                 : FieldValue.arrayUnion(followingUserId)
         })
@@ -113,6 +119,7 @@ export async function toggleFollow(
     profileDocId,
     profileUserId
 ) {
-    console.log('docId', docId);
-    console.log('profile doc id', profileDocId);
+    console.log('following', isFollowingProfile);
+    await updateUserFollowing(docId, profileUserId, isFollowingProfile);
+    await updateFollwedUserFollowers(profileDocId, userId, isFollowingProfile)
 }

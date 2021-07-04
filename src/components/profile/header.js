@@ -15,7 +15,8 @@ export default function Header({
     const { user } = useUser();
     const activeBtn = user.username && user.username !== username;
 
-    const handleToggle = async () => {
+    const handleToggle = async (e) => {
+        e.preventDefault();
         setIsFollowingProfile(prev => !prev)
         setFollowerCount({ followersCount: isFollowingProfile ? followersCount - 1 : followersCount + 1 });
         await toggleFollow(isFollowingProfile, user.docId, user.userId, profileDocId, profileUserId )
@@ -33,6 +34,7 @@ export default function Header({
                     <p className="text-2xl mr-4 font-light">{username}</p>
                     {activeBtn && 
                         <button 
+                            onClick={handleToggle}
                             type="button"
                             className="bg-blue-500 font-medium text-sm rounded text-white w-20 h-8 focus:outline-none"
                         >{isFollowingProfile ? 'Unfollow': 'Follow'}</button>

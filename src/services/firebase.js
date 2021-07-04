@@ -1,6 +1,6 @@
 import { firebase, FieldValue } from "../lib/firebase"
 
-export async function isLoggedInUserFollowingProfile(username, profileUserId) {
+export async function isUserFollowingProfile(username, profileUserId) {
     const result = await firebase
         .firestore()
         .collection('users')

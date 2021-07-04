@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useUser from '../../hooks/use-user';
 import Skeleton from 'react-loading-skeleton';
-import { toggleFollow, isLoggedInUserFollowingProfile } from '../../services/firebase';
+import { toggleFollow, isUserFollowingProfile } from '../../services/firebase';
 
 export default function Header({ 
     username, 
@@ -23,10 +23,15 @@ export default function Header({
     }
 
     useEffect(() => {
-        if(user.following && user.following.includes(profileUserId)) {
-            setIsFollowingProfile(true);
-        }
-    }, [])
+       const isLoggedInUserFollowingProfile = async () => {
+            const isFollowing = await isUserFollowingProfile(user.username, profileUserId);
+            console.log('is following', isFollowing);
+            setIsFollowingProfile(isFollowing)
+       }
+       if(user.username && profileUserId) {
+           isLoggedInUserFollowingProfile()
+       }
+    }, [user.username, profileUserId])
 
     return (
         <div className="grid grid-cols-3 gap-4 mx-auto">

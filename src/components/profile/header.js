@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useUser from '../../hooks/use-user';
 import Skeleton from 'react-loading-skeleton';
-import { toggleFollow } from '../../services/firebase';
+import { toggleFollow, isLoggedInUserFollowingProfile } from '../../services/firebase';
 
 export default function Header({ 
     username, 
@@ -21,6 +21,13 @@ export default function Header({
         setFollowerCount({ followersCount: isFollowingProfile ? followersCount - 1 : followersCount + 1 });
         await toggleFollow(isFollowingProfile, user.docId, user.userId, profileDocId, profileUserId )
     }
+
+    useEffect(() => {
+        if(user.following && user.following.includes(profileUserId)) {
+            setIsFollowingProfile(true);
+        }
+    }, [])
+
     return (
         <div className="grid grid-cols-3 gap-4 mx-auto">
             <div className="container flex items-center justify-center">

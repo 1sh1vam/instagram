@@ -105,3 +105,14 @@ export async function getPhotosByUserId(userId) {
 
     return results.docs.map(photo => ({...photo.data(), docId: photo.id}))
 }
+
+export async function toggleFollow(
+    isFollowingProfile,
+    docId,
+    userId,
+    profileDocId,
+    profileUserId
+) {
+    console.log('docId', docId);
+    console.log('profile doc id', profileDocId);
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useUser from '../../hooks/use-user';
 import Skeleton from 'react-loading-skeleton';
+import { toggleFollow } from '../../services/firebase';
 
 export default function Header({ 
     username, 

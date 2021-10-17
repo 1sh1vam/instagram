@@ -3,12 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 import * as ROUTES from '../constants/routes';
 
 export default function IsUserLoggedIn({ user, loggedInPath, children, ...rest }) {
-    console.log('user', user);
+    console.log('user', loggedInPath);
     return (
         <Route
             {...rest}
             render={({ location }) => {
-                console.log('locationnnnn', location);
                 if(!user) {
                     return children;
                 }
@@ -18,7 +17,6 @@ export default function IsUserLoggedIn({ user, loggedInPath, children, ...rest }
                         <Redirect
                             to={{
                                 pathname: loggedInPath,
-                                state: { from: location }
                             }}
                         />
                     )

@@ -19,17 +19,19 @@ function App() {
       <Router>
         <Suspense fallback={<p>Loading...</p>}>
           <Switch>
-            <IsUserLoggedIn user={user} loggedInPath={ROUTES.DASHBOARD} >
+            <IsUserLoggedIn path={ROUTES.LOGIN} user={user} loggedInPath={ROUTES.DASHBOARD} >
               <Login />
             </IsUserLoggedIn>
-            <IsUserLoggedIn user={user} loggedInPath={ROUTES.DASHBOARD}>
+            <IsUserLoggedIn path={ROUTES.SIGN_UP} user={user} loggedInPath={ROUTES.DASHBOARD}>
               <SignUp />
             </IsUserLoggedIn>
-            <Route path={ROUTES.PROFILE} component={Profile} />
-            <ProtectedRoute user={user}>
+            <ProtectedRoute path={ROUTES.PROFILE} user={user}>
+              <Profile />
+            </ProtectedRoute>
+            <ProtectedRoute path={ROUTES.DASHBOARD} user={user}>
               <Dashboard />
             </ProtectedRoute>
-            <Route path={ROUTES.DASHBOARD} component={Dashboard} exact />
+            {/* <Route path={ROUTES.DASHBOARD} component={Dashboard} exact /> */}
             <Route component={NotFound} />
           </Switch>
         </Suspense>
